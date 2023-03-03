@@ -34,9 +34,12 @@ public class Main {
     }
 
     public static void printNumbers(List<Integer> list) {
-        list.stream()
+        long count = list.stream()
                 .filter(e -> e % 2 == 0)
-                .forEach(System.out::println);
+                .peek(System.out::println)
+                .count();
+
+        System.out.println("Количество элементов " + count);
     }
 
 }
